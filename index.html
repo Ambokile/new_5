@@ -2,32 +2,60 @@
 <html>
 <head>
 <meta charset="utf-8">
+<meta name="viewport" content="width=320; user-scalable=no" />
+<meta http-equiv="Content-type" content="text/html; charset=utf-8">
 <title>Untitled Document</title>
 <link href="jquery-mobile/jquery.mobile-1.0a3.min.css" rel="stylesheet" type="text/css">
 <script type="text/javascript" charset="utf-8" src="phonegap.js"></script> 
 <script src="jquery-mobile/jquery-1.5.min.js" type="text/javascript"></script>
 <script src="jquery-mobile/jquery.mobile-1.0a3.min.js" type="text/javascript"></script>
-<script type="text/javascript" src="http://fishpond.site88.net/upload.js"></script>
+<script type="text/javascript" src="upload.js"></script>
 <script type="text/javascript">
- 
- function trigger_fun(){
-	
-		     if(screen.width <= 600){ 
-			   
-						     window.location = "http://fishpond.site88.net/notes_body.html";
-				  
+function send_info(){
+
+	 var msg = document.querySelector("#info").value;
+ var from = document.querySelector("#from").value;
+  var to = document.querySelector("#select_body").selectedIndex;
+    var to_bd = document.getElementsByName("bod")[to].value;
+	if(from == "" || from == null){
+		     alert("fill from field");
+		}
+	else if(msg == "" || msg == null){
+		    alert( "fill message field");
+		}
+	else{
+	 var xmlhttp;
+	if(window.XMLHttpRequest){
+		xmlhttp = new XMLHttpRequest();}
+	else{
+	    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");}
+ xmlhttp.onreadystatechange = function(){
+	 if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
+		 var id = xmlhttp.responseText.search("success");
+		 if(id != -1 ){
+			     alert("successifull published");
+				 document.querySelector("#info").value == "";
+                 document.querySelector("#from").value == "";
+				  document.querySelector("#select_body").selectedIndex == 0;
 			 }
-	        else
-			      alert("failed to connect because not support");
-	
- return false;
+		 else
+		      alert("failed published");
+	 }
+			 
+			                       };
+url = "http://fishpond.site88.net/send_info.php";
+xmlhttp.open("POST",url,true);
+xmlhttp.setRequestHeader("content-Type","application/x-www-form-urlencoded");
+xmlhttp.send("msg="+msg+"&from="+from+"&ntb="+to_bd);
 	}
+ return false;
+	}	 
 </script>
-</script>
+
 </head>
 
-<body onLoad="onLoad();">
-<div data-role="page" id="page" data-theme="b" style="height:100%;">
+<body>
+<div data-role="page" id="home" data-theme="b" style="height:100%;">
   <div data-role="header">
     <h1>DIT NOTES BODY</h1>
   </div>
@@ -39,14 +67,321 @@
        <div style=" width:100%; background-color:transparent;">
        <div data-role="navbar" data-grid="a">
          <ul>
-            <li><a href="" onClick="trigger_fun();$('#loading').show();">news</a></li>
+            <li><a href="" onClick="trigger_fun()">news</a></li>
             <li><a href="">chat</a></li>
          </ul>
          </div>
        </div>
-       <div id="loading" style="display:none; background-color:transparent; text-align:center;font-size:10px; margin:10%;"><img src="jquery-mobile/images/ajax-loader.gif" alt="" />Loading!</div>
         </div>
   </div>
 </div>
+
+<div data-role="page" data-theme="b" id="enter" style="height:auto;">
+  <div data-role="header" style="position:absolute; z-index:1;">
+    <h1 style="text-align:left;">DIT NOTES BODY</h1>
+  </div>
+  <div data-role="content" style=" position:absolute; width:100%; top:6%; padding:0; background-color:transparent;">
+    <ul data-role="listview" data-inset="true" style="">
+      <li style="padding:2%; font-size:12px; border-radius:0">
+        <h3><a href="#body_admin" style="font-size:14px;" onClick="grap_info('A','0');">Admission</a></h3>
+        <p style=""><img src="img/dit.jpg" width="81" height="100" alt="dit" longdesc="img/dit.jpg" style=" border:#000 thin none;">Dar es salaam institute of technology</p>
+        <p class="ui-li-aside">http://www.dit.ac.tz</p>
+      </li>
+      <li style="padding:2%;">
+        <h3><a href="#department" style="font-size:14px;">Department</a></h3>
+        <p><img src="img/department.jpg" width="81" height="100" alt="dit" longdesc="img/dit.jpg" style=" border:#000 thin none;">Dar es salaam instute of technology</p>
+        <p class="ui-li-aside">dit</p>
+      </li>
+      <li style="padding:2%;">
+        <h3><a href="#body_DITSO" style="font-size:14px;"  onClick="grap_info('DI','1');">DITSO</a></h3>
+        <p><img src="img/Tulips.jpg" width="91" height="100" alt="dit" longdesc="img/dit.jpg" style=" border:#000 thin none;">Dar es salaam instute of technology</p>
+        <p class="ui-li-aside">dit</p>
+      </li>
+      <li style="padding:2%;">
+        <h3><a href="#body_lib" style="font-size:14px;"  onClick="grap_info('L','2');">DIT LIBRARY</a></h3>
+        <p><img src="img/lib.jpg" width="81" height="100" alt="dit" longdesc="img/dit.jpg" style=" border:#000 thin none;">Dar es salaam instute of technology</p>
+        <p class="ui-li-aside">dit</p>
+      </li>
+      <li style="padding:2%;">
+        <h3><a href="#body_clubs" style="font-size:14px;"  onClick="grap_info('C','3');">Dit Clubs</a></h3>
+        <p><img src="img/club.jpg" width="91" height="100" alt="dit" longdesc="img/dit.jpg" style=" border:#000 thin none;">Dar es salaam instute of technology</p>
+        <p class="ui-li-aside">dit</p>
+      </li>
+      <li style="padding:2%;">
+        <h3><a href="#body_publisher" style="font-size:14px;">Publish information</a></h3>
+        <p><img src="img/publish.jpg" width="71" height="90" alt="dit" longdesc="img/dit.jpg" style=" border:#000 thin none;">Dar es salaam instute of technology</p>
+        <p class="ui-li-aside">dit</p>
+      </li>
+      </li>
+      <li style="padding:2%; border-radius:0" >
+        <h3><a href="#body_about_dit" style="font-size:14px;"  onClick="grap_info('about_dit','4');">About DIT</a></h3>
+        <p><img src="img/dit_1.gif" width="71" height="90" alt="dit" longdesc="img/dit.jpg" style=" border:#000 thin none;">Dar es salaam institute of technology</p>
+        <p class="ui-li-aside">dit</p>
+      </li>
+    </ul>
+   
+     
+  </div>
+  
+</div>
+<div data-role="page" id="department" style="" data-backbtn="true" data-back-btn-text="Back" data-theme="b">
+  <div data-role="header" style="position:absolute; z-index:1;" >
+    <h1 style="text-align:left; ">DIT NOTES BODY</h1>
+  </div>
+  <div data-role="content" style="margin-top:10%; z-index:-1;">
+    <div data-role="collapsible-set">
+      <div data-role="collapsible" style="">
+        <h3 style="">Department</h3>
+        <p>        
+        <ul data-role="listview" data-inset="true">
+          <li><a href="#body_com"  onClick="grap_info('com','5');">Computer</a></li>
+          <li><a href="#body_tele"  onClick="grap_info('tel','6');">Telecommunication</a></li>
+          <li><a href="#body_bio"  onClick="grap_info('Bio','7');">Biomedical</a></li>
+          <li><a href="#body_elect"  onClick="grap_info('elect','8');">Electrical</a></li>
+          <li><a href="#body_civil"  onClick="grap_info('civ','9');">Civil</a></li>
+          <li><a href="#body_lab_tech"  onClick="grap_info('lab_tech','A');">Laboratory tech.</a></li>
+        </ul>
+        </p>
+      </div>
+      <div data-role="collapsible">
+        <h3>General information :</h3>
+        <p id="infogen"> 
+		</p>
+        
+      </div>
+    </div>
+  </div>
+</div>
+<div data-role="page" id="body_com" style="background-color:#063;" data-backbtn="true" data-back-btn-text="Back"  data-theme="b">
+  <div data-role="header" style=" position:absolute; z-index:3;">
+    <h1 style="text-align:left;">DIT NOTES BODY</h1>
+  <div style=" font-size:12px; font-style:italic; font-weight:normal; background-color:#0f0;color:#000; height:40px;"><br><span style=" margin-left:10%; font-style:italic; font-weight:normal;"></span><span style=" margin-left:2%;">Computer notes body :</span></div>
+  </div>
+  
+  <div data-role="content" style="background-color:transparent; height:100%; margin-top:30%; padding:2%;" id="info5">	 
+</div>
+</div>
+
+<div data-role="page" id="body_tele" style="background-color:#063" data-backbtn="true" data-back-btn-text="Back"  data-theme="b">
+  <div data-role="header" style=" position:absolute; z-index:1;">
+    <h1 style="text-align:left;">DIT NOTES BODY</h1>
+  <div style=" font-size:12px; font-style:italic; font-weight:normal; background-color:#0f0;color:#000; height:40px;"><br><span style=" margin-left:10%; font-style:italic; font-weight:normal;"></span><span style=" margin-left:2%;">Telecommunication notes body :</span></div>
+  </div>
+  
+  <div data-role="content" style="background-color:transparent; height:100%; margin-top:30%; padding:2%" id="info6">
+       
+	
+</div>
+</div>
+
+<div data-role="page" id="body_bio" style="background-color:#063" data-backbtn="true" data-back-btn-text="Back"  data-theme="b">
+  <div data-role="header" style=" position:absolute; z-index:1;">
+    <h1 style="text-align:left;">DIT NOTES BODY</h1>
+  <div style=" font-size:12px; font-style:italic; font-weight:normal; background-color:#0f0;color:#000; height:40px;"><br><span style=" margin-left:10%; font-style:italic; font-weight:normal;"></span><span style=" margin-left:2%;">Biomedical notes body :</span></div>
+  </div>
+  
+  <div data-role="content" style="background-color:transparent; height:100%; margin-top:30%; padding:2%" id="info7">
+     
+   </div>
+</div>
+
+<div data-role="page" id="body_elect" style="background-color:#063" data-backbtn="true" data-back-btn-text="Back"  data-theme="b">
+  <div data-role="header" style=" position:absolute; z-index:1;">
+    <h1 style="text-align:left;">DIT NOTES BODY</h1>
+   <div style=" font-size:12px; font-style:italic; font-weight:normal; background-color:#0f0;color:#000; height:40px;"><br><span style=" margin-left:10%; font-style:italic; font-weight:normal;"></span><span style=" margin-left:2%;">Electrical notes body :</span></div>
+  </div>
+  
+  <div data-role="content" style="background-color:transparent; height:100%; margin-top:30%; padding:2%" id="info8">
+     
+</div>
+</div>
+
+<div data-role="page" id="body_civil" style="background-color:#063" data-backbtn="true" data-back-btn-text="Back"  data-theme="b">
+  <div data-role="header" style=" position:absolute; z-index:1;">
+    <h1 style="text-align:left;">DIT NOTES BODY</h1>
+  <div style=" font-size:12px; font-style:italic; font-weight:normal; background-color:#0f0;color:#000; height:40px;"><br><span style=" margin-left:10%; font-style:italic; font-weight:normal;"></span><span style=" margin-left:2%;">Civil notes body :</span></div>
+  </div>
+  
+  <div data-role="content" style="background-color:transparent; height:100%; margin-top:30%; padding:2%" id="info9">
+     
+</div>
+</div>
+
+<div data-role="page" id="body_lab_tech" style="background-color:#063" data-backbtn="true" data-back-btn-text="Back"  data-theme="b">
+  <div data-role="header" style=" position:absolute; z-index:1;">
+    <h1 style="text-align:left;">DIT NOTES BODY</h1>
+   <div style=" font-size:12px; font-style:italic; font-weight:normal; background-color:#0f0;color:#000; height:40px;"><br><span style=" margin-left:10%; font-style:italic; font-weight:normal;"></span><span style=" margin-left:2%;">Lab tech notes body :</span></div>
+  </div>
+  
+  <div data-role="content" style="background-color:transparent; height:100%; margin-top:30%; padding:2%" id="infoA">
+</div>
+</div>
+
+<div data-role="page" id="body_admin" style="background-color:#063" data-backbtn="true" data-back-btn-text="Back" data-theme="b">
+  <div data-role="header" style=" position:absolute; z-index:1;">
+    <h1 style="text-align:left;">DIT NOTES BODY</h1>
+      <div style=" font-size:12px; font-style:italic; font-weight:normal; background-color:#0f0;color:#000; height:40px;"><br><span style=" margin-left:10%; font-style:italic; font-weight:normal;"></span><span style=" margin-left:2%;">Adminission notes body :</span></div>
+  </div>
+  
+  <div data-role="content" style="background-color:transparent; height:100%; margin-top:30%; padding:2%" id="info0">  
+  </div>
+
+</div>
+
+<div data-role="page" id="body_DITSO" style="background-color:#063" data-backbtn="true" data-back-btn-text="Back"  data-theme="b">
+  <div data-role="header" style=" position:absolute; z-index:1;">
+    <h1 style="text-align:left;">DIT NOTES BODY</h1>
+    <div style=" font-size:12px; font-style:italic; font-weight:normal; background-color:#0f0;color:#000; height:40px;"><br><span style=" margin-left:10%; font-style:italic; font-weight:normal;"></span><span style=" margin-left:2%;">DITSO notes body :</span></div>
+  </div>
+  <div data-role="content" style="background-color:transparent; height:100%; margin-top:30%; padding:2%" id="info1">
+    
+</div>
+</div>
+<div data-role="page" id="body_lib" style="background-color:#063" data-backbtn="true" data-back-btn-text="Back"  data-theme="b">
+  <div data-role="header" style=" position:absolute; z-index:1;">
+    <h1 style="text-align:left;">DIT NOTES BODY</h1>
+    <div style=" font-size:12px; font-style:italic; font-weight:normal; background-color:#0f0;color:#000; height:40px;"><br><span style=" margin-left:10%; font-style:italic; font-weight:normal;"></span><span style=" margin-left:2%;">Library notes body :</span></div>
+  </div>
+  <div data-role="content" style="background-color:transparent; height:auto; margin-top:30%; padding:2%" id="info2">
+     
+</div>
+</div>
+
+<div data-role="page" id="body_clubs" style="background-color:#063" data-backbtn="true" data-back-btn-text="Back"  data-theme="b">
+  <div data-role="header" style=" position:absolute; z-index:1;">
+    <h1 style="text-align:left;">DIT NOTES BODY</h1>
+    <div style=" font-size:12px; font-style:italic; font-weight:normal; background-color:#0f0;color:#000; height:40px;"><br><span style=" margin-left:10%; font-style:italic; font-weight:normal;"></span><span style=" margin-left:2%;">Clubs notes body :</span></div>
+  </div>
+  <div data-role="content" style="background-color:transparent; height:auto; margin-top:30%; padding:2%" id="info3">
+   
+</div>
+</div>
+
+<div data-role="page" id="body_about_dit" style="background-color:#063" data-backbtn="true" data-back-btn-text="Back"  data-theme="b">
+  <div data-role="header" style=" position:absolute; z-index:1;">
+    <h1 style="text-align:left;">DIT NOTES BODY</h1>
+    <div style=" font-size:12px; font-style:italic; font-weight:normal; background-color:#0f0;color:#000; height:40px;"><br><span style=" margin-left:10%; font-style:italic; font-weight:normal;"></span><span style=" margin-left:2%;">About DIT notes body :</span></div>
+  </div>
+  <div data-role="content" style="background-color:transparent; height:100%; margin-top:0%; padding:2%" id="info4">   
+</div>
+</div>
+
+<div data-role="page" id="body_publisher" style="height:100%;"  data-theme="b">
+   <div data-role="header">
+     <h1 style="text-align:left;">DIT NOTES BODY</h1>
+  </div>
+  <form action="" method="post" name="form_log_in" target="_self" data-ajax="true">
+ <div data-role="content" style="height:100%; padding:0; margin-top:10%;">
+     
+      <div class="ui-block-a" style="text-align:center; width:100%; font-size:13px; font-style:oblique;">This page give you the simple and efficient way to inform people,<br /> log in to see by yourself
+      </div>
+    
+      <div class="ui-block-a" style="width:100%; font-size:13px" >
+        <div class="ui-grid-a">
+        <div class="ui-block-a" style="width:40%; text-indent:10%; margin-top:2%; ">&nbsp;</div>
+          <div class="ui-block-a" style="width:40%; text-indent:10%; margin-top:2%; ">&nbsp;</div>
+          <div class="ui-block-b" style="width:60%">&nbsp;</div>
+        </div>
+      </div>
+      
+      <div class="ui-block-a"  style="width:100%; font-size:13px" ><div class="ui-grid-a">
+          <div class="ui-block-a" style="width:40%; text-indent:10%; margin-top:2%;">user Name :</div>
+          <div class="ui-block-b" style="width:60%"><input type="text" name="user_name" id="username_2"  style="width:80%; border-radius:0%;"/></div>
+        </div></div>
+        
+      <div class="ui-block-a" style="width:100%; font-size:13px"><div class="ui-grid-a">
+          <div class="ui-block-a" style="width:40%; text-indent:10%; margin-top:2%; ">&nbsp;</div>
+          <div class="ui-block-b" style="width:60%">&nbsp;</div>
+        </div></div>
+        
+        
+          
+      <div class="ui-block-a" style="width:100%; font-size:13px"><div class="ui-grid-a">
+          <div class="ui-block-a" style="width:40%; text-indent:10%; margin-top:2%; ">Password :</div>
+          <div class="ui-block-b" style="width:60%"><input type="password" name="password" id="password_2"  style="width:80%; border-radius:0%;"/>&nbsp;</div>
+        </div></div>
+     
+      <div class="ui-block-a" style="width:100%; font-size:13px; text-align:center;">
+        <div data-role="controlgroup" data-type="horizontal">
+         
+     <input type="submit" value="Submit" data-icon="arrow-u" data-iconpos="left" name="submit" onClick="return  log_in();"/>
+    <input type="reset" value="clear" data-icon="forward" data-iconpos="right" /> 
+  </div></div>
+<div id="log_err" class="ui-block-a" style="text-align:center; width:100%; font-size:13px; font-style:oblique; color:#f00">
+ 
+</div>
+</div>
+    </form>
+</div>
+
+</div>
+<div data-role="page" id="body_admin_publish" style="height:auto" data-backbtn="true" data-back-btn-text="Back" data-theme="b">
+<div data-role="header" style="position:absolute; z-index:1;">
+       <h1 style="text-align:left;">DIT NOTES BODY</h1>  
+  </div>
+   
+
+  <div data-role="content" style="height:auto; z-index:-1; margin-top:25%; padding:0">
+ <form action="" method="POST" name="form_2" target="_self" data-ajax="true">
+   <div class="ui-grid-a" >
+    <div class="ui-block-a" style ="width:100%;">&nbsp;</div>
+      <div class="ui-block-a" style=" width:100%; text-indent:5%;font-size:12px; font-style:italic; color:#00008B;">SEND INFORMATION TO MEMBERS :
+      </div>
+      <div class="ui-block-a" style ="width:100%;">&nbsp;</div>
+      <div class="ui-block-a" style=" width:100%; text-indent:10%;font-size:12px;">from :
+      </div>
+      
+     <div class="ui-block-a" style=" width:100%; text-indent:22%;">
+     <div style="text-indent:22%;">
+          <input type="text" value = "";  id="from" name="from" style="width:200px "/>
+          </div>
+     </div>
+       <div class="ui-block-a" style ="width:100%;">&nbsp;</div>
+      <div class="ui-block-a" style=" width:100%; text-indent:10%;font-size:12px;">Notes body type :
+      </div>
+      
+     <div class="ui-block-a" style=" width:100%; text-indent:22%;">
+           <div data-role="fieldcontain" id="admin_policy">
+      <select name="select_course" id="select_body" onChange=" change_new();" name="notes_body_type" style="width:100px ">
+        <option value="A" name = "bod">Admission</option>
+       <option value="com"  name = "bod">Computer</option><option value="Tel"  name = "bod">Telecommunication</option><option value="Civ"  name = "bod">Civil</option><option value="Elect"  name = "bod">Electrical</option><option value="Min"  name = "bod">Mining</option><option value="Lab_tech"  name = "bod">Lab tech</option><option value="Bio"  name = "bod">Biomedical</option>
+        <option value="DI"  name = "bod">DITSO</option>
+         <option value="L"  name = "bod">DIT LIBRARY</option>
+          <option value="C"  name = "bod">DIT CLUBS</option>
+            <option value="GEN"  name = "bod">General information</option>
+      </select>
+    </div>   
+     </div>
+      
+      <div class="ui-block-a" style=" width:100%; text-indent:30%;font-size:12px;" id="add_user"></div>
+      <div class="ui-block-a" style=" width:100%; text-indent:10%;font-size:12px;">message :
+      </div>
+      <div class="ui-block-a" style ="width:100%;">&nbsp;</div>
+      <div class="ui-block-a" style="width:100%; text-indent:22%">
+          <textarea cols="40" rows="8" name="msg" id="info" style="font-size:12px; border-radius:0%;"></textarea>
+      </div>
+      
+      
+      
+   <div class="ui-block-a" style="width:100%; text-align:right;">
+   
+     <div data-role="controlgroup" data-type="horizontal">
+            <input type="submit" value="send info" name="submit" onClick=" return send_info();" />
+            <input type="reset" value="clear" />
+        </div>
+  </div>
+  
+  
+</div>
+  <div  id="reply" class="ui-block-a" style="width:100%; font-size:13px; text-align:center;"></div>
+   <hr />
+   
+      <div class="ui-block-a" style="width:auto">
+    <span style="" ></span>
+</div> 
+ </div>
+ </form>
+</div>
+<!-- close admin -->
 </body>
 </html>
