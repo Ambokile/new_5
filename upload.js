@@ -48,7 +48,7 @@ function log_in(){
 		 var id = xmlhttp.responseText.search("pass_in");
 		   if(id != -1){
 			       user_name = ""; password = "";
-			       document.location = "notes_body.html#body_admin_publish";
+			       document.location = "#body_admin_publish";
 			   }
 		   else
 		        alert("failed to log in");
