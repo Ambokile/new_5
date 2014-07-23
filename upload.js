@@ -48,7 +48,10 @@ function log_in(){
 		 var id = xmlhttp.responseText.search("pass_in");
 		   if(id != -1){
 			       user_name = ""; password = "";
-			       document.location = "#body_admin_publish";
+			      var element = document.createElement("a");
+				  element.href = "#body_admin_publish";
+				  document.querySelector("#body_publisher").appendChild(element);
+				  element.click();
 			   }
 		   else
 		        alert("failed to log in");
