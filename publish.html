@@ -14,7 +14,7 @@
 function send_info(){
 
 	 var msg = document.querySelector("#info").value;
- var from = document.querySelector("#frm").value;
+ var from = document.querySelector("#from").value;
   var to = document.querySelector("#select_body").selectedIndex;
     var to_bd = document.getElementsByName("bod")[to].value;
 	if(from == "" || from == null){
@@ -35,7 +35,7 @@ function send_info(){
 		 if(id != -1 ){
 			     alert("successifull published");
 				 document.querySelector("#info").value == "";
-                 document.querySelector("#frm").value == "";
+                 document.querySelector("#from").value == "";
 				  document.querySelector("#select_body").selectedIndex == 0;
 			 }
 		 else
@@ -72,7 +72,7 @@ xmlhttp.send("msg="+msg+"&from="+from+"&ntb="+to_bd);
       <div class="ui-block-a" style=" width:100%; text-indent:10%;font-size:12px;">from :
       </div>
       
-     <div class="ui-block-a" style=" width:100%; text-indent:22%;">
+     <div class="ui-block-a" style=" width:100%; text-indent:22%; margin-top:5%;">
      <div style="text-indent:22%;">
           <input type="text"  id="frm" name="frm" style="width:200px " placeholder="Hamis Hamis"/>
           </div>
@@ -94,7 +94,7 @@ xmlhttp.send("msg="+msg+"&from="+from+"&ntb="+to_bd);
     </div>   
      </div>
       
-      <div class="ui-block-a" style=" width:100%; text-indent:30%;font-size:12px;" id="add_user"></div>
+      <div class="ui-block-a" style=" width:100%; text-indent:30%;font-size:12px;">&nbsp;</div>
       <div class="ui-block-a" style=" width:100%; text-indent:10%;font-size:12px;">message :
       </div>
       <div class="ui-block-a" style ="width:100%;">&nbsp;</div>
@@ -114,7 +114,7 @@ xmlhttp.send("msg="+msg+"&from="+from+"&ntb="+to_bd);
   
   
 </div>
-  <div  id="reply" class="ui-block-a" style="width:100%; font-size:13px; text-align:center;"></div>
+  <div  id="reply" class="ui-block-a" style="width:100%; font-size:13px; text-align:center;">&nbsp;</div>
    <hr />
    
       <div class="ui-block-a" style="width:auto">
