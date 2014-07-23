@@ -11,45 +11,6 @@
 <script src="jquery-mobile/jquery.mobile-1.0a3.min.js" type="text/javascript"></script>
 <script type="text/javascript" src="upload.js"></script>
 <script type="text/javascript">
-function send_info(){
-
-	 var msg = document.querySelector("#info").value;
- var from = document.querySelector("#frm").value;
-  var to = document.querySelector("#select_body").selectedIndex;
-    var to_bd = document.getElementsByName("bod")[to].value;
-	if(from == "" || from == null){
-		     alert("fill from field");
-		}
-	else if(msg == "" || msg == null){
-		    alert( "fill message field");
-		}
-	else{
-	 var xmlhttp;
-	if(window.XMLHttpRequest){
-		xmlhttp = new XMLHttpRequest();}
-	else{
-	    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");}
- xmlhttp.onreadystatechange = function(){
-	 if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
-		 var id = xmlhttp.responseText.search("success");
-		 if(id != -1 ){
-			     alert("successifull published");
-				 document.querySelector("#info").value == "";
-                 document.querySelector("#from").value == "";
-				  document.querySelector("#select_body").selectedIndex == 0;
-			 }
-		 else
-		      alert("failed published");
-	 }
-			 
-			                       };
-url = "http://fishpond.site88.net/send_info.php";
-xmlhttp.open("POST",url,true);
-xmlhttp.setRequestHeader("content-Type","application/x-www-form-urlencoded");
-xmlhttp.send("msg="+msg+"&from="+from+"&ntb="+to_bd);
-	}
- return false;
-	}	 
 </script>
 
 </head>
