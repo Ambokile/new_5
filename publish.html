@@ -14,7 +14,7 @@
 function send_info(){
 
 	 var msg = document.querySelector("#info").value;
- var from = document.querySelector("#from").value;
+ var from = document.querySelector("#frm").value;
   var to = document.querySelector("#select_body").selectedIndex;
     var to_bd = document.getElementsByName("bod")[to].value;
 	if(from == "" || from == null){
@@ -35,7 +35,7 @@ function send_info(){
 		 if(id != -1 ){
 			     alert("successifull published");
 				 document.querySelector("#info").value == "";
-                 document.querySelector("#from").value == "";
+                 document.querySelector("#frm").value == "";
 				  document.querySelector("#select_body").selectedIndex == 0;
 			 }
 		 else
