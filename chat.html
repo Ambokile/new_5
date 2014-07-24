@@ -223,7 +223,7 @@ xmlhttp.send();
           <ul>
             <li><a href="#add" data-ajax="true">add</a></li>
             <li><a href="#" data-ajax="true">media</a></li>
-            <li><a href="\" data-ajax="true">out</a></li>
+            <li><a href="#" data-ajax="true">out</a></li>
           </ul>
         </div>
   </div>
@@ -235,11 +235,11 @@ xmlhttp.send();
 <div data-role="page" id="chat_room"  data-theme="b">
   <div data-role="header" style="position:fixed; z-index:1;">
    <h1  style="font-stretch:condensed; font-style:italic; margin-right:5%; z-index:1; width:100%;" ><span style="font-stretch:condensed; font-style:italic; float:left; width:20%;">DIT NOTES BODY</span><span style="font-stretch:condensed; font-style:italic; float:right; width:80%; font-size:12px; text-indent:2%;" id="user_chat_room"></span></h1>
-    <div data-role="navbar" data-icon="grid" style="background-color:#000;">
+    <div data-role="navbar" data-icon="grid" style="background-color:#000;" data-theme = "a">
       <ul>
-        <li><a href="chat.html#chat" data-ajax="false" data-icon="info" onClick=" disable_this();">chat</a></li>
-        <li><a href="chat.html#media" data-icon="star" data-ajax="false">media</a></li>
-        <li><a href="log_out.php" data-ajax="false" data-icon="back">log out</a></li>
+        <li><a href="#chat" data-ajax="true" onClick=" disable_this();">chat</a></li>
+        <li><a href="#media" data-ajax="true">media</a></li>
+        <li><a href="#" data-ajax="true">log out</a></li>
       </ul>
     </div>
   </div>
@@ -256,11 +256,11 @@ xmlhttp.send();
 <div data-role="page" id="add"  style="height:100%" data-theme="b">
   <div data-role="header">
     <h1>DIT NOTES BODY</h1>
-    <div data-role="navbar" data-icon="grid" style="">
+    <div data-role="navbar" data-icon="grid" style="" data-theme ="a";>
       <ul>
-        <li><a href="chat.html#chat" data-ajax="false" data-icon="info">home</a></li>
-        <li><a href="chat.html#media" data-icon="star" data-ajax="false">media</a></li>
-        <li><a href="log_out.php" data-ajax="false" data-icon="back">log out</a></li>
+        <li><a href="chat.html#chat" data-ajax="false">Back</a></li>
+        <li><a href="chat.html#media" data-ajax="false">media</a></li>
+        <li><a href="" data-ajax="false">out</a></li>
       </ul>
     </div>
   </div>
