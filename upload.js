@@ -38,6 +38,13 @@ function log_in(){
 	 var user_name = document.getElementById("username_2").value;
 	  var password = document.getElementById("password_2").value;
 	   var xmlhttp;
+	   if(user_name == "" || user_name == null){
+	     alert("user name field is empty");
+	  }
+  else if(password == "" || password == null){
+	       alert("password field is empty");
+	  }
+else{
 	if(window.XMLHttpRequest){
 		xmlhttp = new XMLHttpRequest();}
 	else{
@@ -56,7 +63,7 @@ function log_in(){
                                         };
 xmlhttp.open("GET","http://fishpond.site88.net/log_in.php?user="+user_name+"&pass="+password,true);
 xmlhttp.send();
-
+       }
 
 		return false;	
 	}
