@@ -10,7 +10,19 @@
 <script src="jquery-mobile/jquery-1.5.min.js" type="text/javascript"></script>
 <script src="jquery-mobile/jquery.mobile-1.0a3.min.js" type="text/javascript"></script>
 <script type="text/javascript" src="upload.js"></script>
+<script>
+function henceWelcome(){
+     $("#h2_s").css("color","red").slideDown(2000).html("Welcome!!!");
+}
+$(document).ready(function(){
+    $("#h2_s").css("color","red").slideUp(2000);
+    setTimeout(henceWelcome,2000);
+                
+});
+</script>
 <script type="text/javascript">
+
+
 function log_in_chat(){
 	
 	    var user_name = document.getElementById("user").value;
@@ -57,18 +69,18 @@ xmlhttp.send();
   </div>
   <div data-role="content" style="background-color:transparent;">
    
-  <div style=" width:80%; height:50%;  background-color:transparent; margin-left:20%;">
-       <div style=" margin-top:20%; width:80%; background-color:transparent; text-align:left;">
-            <h2 style= "margin-bottom:5%;">Welcome!!!</h2>
+  <div style=" width:80%; height:100%;  background-color:transparent; margin-left:20%;" id ="fresh">
+    <div style=" margin-top:20%; width:80%; background-color:transparent; text-align:left;">
+            <h2 style= "margin-bottom:5%; visibility:visible;" id = "h2_s">hey</h2>
        <div data-role="navbar" data-grid="a">
          <ul>
-            <li><a href="#enter" data-ajax="true">news</a></li>
-            <li><a href="#chat_login">chat</a></li>
+            <li><a href="" data-ajax="true" id = "button_first">news</a></li>
+            <li><a href="#chat_login" id = "button_second">chat</a></li>
          </ul>
-         </div>
-       </div>
-        </div>
-  </div>
+      </div>
+   </div>
+ </div>
+</div>
 </div>
 
 <div data-role="page" data-theme="b" id="enter" style="height:auto;">
