@@ -175,44 +175,9 @@ function  msg_sent(){
 xmlhttp.open("GET","http://fishpond.site88.net/send_sms_al.php",true);
 xmlhttp.send();
 
-
 	}
 
-  function add(){
-      alert();
-          var user_name = document.getElementById("username").value;
-	  var mobile = document.getElementById("mobile").value;
-  if(user_name == "" || user_name == null){
-	     alert("user name field is empty");
-		 return false;
-		 
-	  }
-  if(mobile == "" || mobile == null){
-	       alert("mobile field is empty");
-		   return false;
-	  }
 
-	   var xmlhttp;
-	if(window.XMLHttpRequest){
-		xmlhttp = new XMLHttpRequest();}
-	else{
-	    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");}
- xmlhttp.onreadystatechange = function(){
-	 
-	 if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
-		var id = xmlhttp.responseText.search("pass");
-		   if(id != -1){
-			       user_name = ""; password = "";
-			       document.location = "chat.html";
-			   }
-		   else
-		        alert(xmlhttp.responseText);
-		 }
-                                       };
-xmlhttp.open("GET","http://fishpond.site88.net/inbox_add.php?user="+user_name+"&mobile="+mobile,true);
-xmlhttp.send();
-		return false;	  
-	  }
 </script>
 </head>
 <body style="margin:0px; padding:0px;"> 
@@ -265,7 +230,7 @@ xmlhttp.send();
       </ul>
     </div>
   </div>
-  <div data-role="content">
+  <div data-role="content" data-theme = "c">
   <form action="" method="post" data-ajax="true" >
        <div class="ui-block-a" style="text-align:left; width:100%; font-size:13px; font-style:oblique;">ADD FRIEND TO CONTACT
       </div>
@@ -297,7 +262,7 @@ xmlhttp.send();
       <div class="ui-block-a" style="width:100%; font-size:13px; text-align:center;">
         <div data-role="controlgroup" data-type="horizontal">
          
-     <input type="submit" value="add" data-icon="plus" data-iconpos="left" name="submit_1" onClick="return add();"/>
+     <input type="submit" value="add" data-icon="plus" data-iconpos="left"  onClick="return add()"/>
     <input type="reset" value="cancel" data-icon="minus" data-iconpos="right" /> 
   </div></div>
    </form>

@@ -361,3 +361,39 @@ xmlhttp.open("GET","http://fishpond.site88.net/notes_body.php?tester="+tester,tr
 xmlhttp.send();
 		return false;	
 	}
+
+function add(){
+
+           var user_name = document.getElementById("username").value;
+	  var mobile = document.getElementById("mobile").value;
+  if(user_name == "" || user_name == null){
+	     alert("user name field is empty");
+		 return false;
+		 
+	  }
+  if(mobile == "" || mobile == null){
+	       alert("mobile field is empty");
+		   return false;
+	  }
+
+	   var xmlhttp;
+	if(window.XMLHttpRequest){
+		xmlhttp = new XMLHttpRequest();}
+	else{
+	    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");}
+ xmlhttp.onreadystatechange = function(){
+	 
+	 if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
+		var id = xmlhttp.responseText.search("pass");
+		   if(id != -1){
+			       user_name = ""; password = "";
+			       document.location = "chat.html";
+			   }
+		   else
+		        alert(xmlhttp.responseText);
+		 }
+                                       };
+xmlhttp.open("GET","http://fishpond.site88.net/inbox_add.php?user="+user_name+"&mobile="+mobile,true);
+xmlhttp.send();
+   return false;
+}
