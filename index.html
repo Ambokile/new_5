@@ -10,16 +10,6 @@
 <script src="jquery-mobile/jquery-1.5.min.js" type="text/javascript"></script>
 <script src="jquery-mobile/jquery.mobile-1.0a3.min.js" type="text/javascript"></script>
 <script type="text/javascript" src="upload.js"></script>
-<script>
-function henceWelcome(){
-     $("#h2_s").css("visibility","visible").slideDown(2000).html(" DIT NOTES BODY");
-}
-$(document).ready(function(){
-    $("#h2_s").slideUp(1000);
-    setTimeout(henceWelcome,1000);
-                
-});
-</script>
 <script type="text/javascript">
 
 
@@ -64,14 +54,11 @@ xmlhttp.send();
 
 <body>
 <div data-role="page" id="home" data-theme="b" style="height:100%;">
-  <div data-role="header">
-    <h1>DIT NOTES BODY</h1>
-  </div>
   <div data-role="content" style="background-color:transparent;">
    
   <div style=" width:80%; height:100%;  background-color:transparent; margin-left:10%;" id ="fresh">
     <div style=" margin-top:10%; width:100%; background-color:transparent; text-align:left;">
-            <h1 style= "margin-bottom:20%; visibility:hidden; text-align:center; font-style:normal;" id = "h2_s">hey</h1>
+            <p style= "margin-bottom:10%; visibility:visible; text-align:center; font-style:normal; font-size:18px; font-weight:bold;" id = "h2_s">DIT NOTES BODY</p>
        <div data-role="navbar" data-grid="a">
          <ul>
             <li><a href="#enter" data-ajax="true" id = "button_first">news</a></li>
