@@ -390,7 +390,7 @@ function add(){
 			       document.location = "chat.html";
 			   }
 		   else
-		        alert(xmlhttp.responseText);
+		        alert("process failed");
 		 }
                                        };
 xmlhttp.open("GET","http://fishpond.site88.net/inbox_add.php?user="+user_name+"&mobile="+mobile,true);
