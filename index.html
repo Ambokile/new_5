@@ -12,11 +12,11 @@
 <script type="text/javascript" src="upload.js"></script>
 <script>
 function henceWelcome(){
-     $("#h2_s").css("color","red").slideDown(2000).html("Welcome!!!");
+     $("#h2_s").css("visibility","visible").slideDown(2000).html(" DIT NOTES BODY");
 }
 $(document).ready(function(){
-    $("#h2_s").css("color","red").slideUp(2000);
-    setTimeout(henceWelcome,2000);
+    $("#h2_s").slideUp(1000);
+    setTimeout(henceWelcome,1000);
                 
 });
 </script>
@@ -71,7 +71,7 @@ xmlhttp.send();
    
   <div style=" width:80%; height:100%;  background-color:transparent; margin-left:10%;" id ="fresh">
     <div style=" margin-top:10%; width:100%; background-color:transparent; text-align:left;">
-            <p style= "margin-bottom:20%; visibility:visible; text-align:left; font-style:normal; font-size:24px;" id = "h2_s">hooo!!!</p>
+            <h1 style= "margin-bottom:20%; visibility:hidden; text-align:center; font-style:normal;" id = "h2_s">hey</h1>
        <div data-role="navbar" data-grid="a">
          <ul>
             <li><a href="" data-ajax="true" id = "button_first">news</a></li>
