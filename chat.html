@@ -10,7 +10,6 @@
 <script type="text/javascript" src="upload.js"></script>
 <script type="text/javascript">
 window.onload = function(){ 
-alert();
      function chat(){
 		     var xmlhttp;
 	if(window.XMLHttpRequest){
@@ -180,6 +179,7 @@ xmlhttp.send();
 	}
 
   function add(){
+      alert();
           var user_name = document.getElementById("username").value;
 	  var mobile = document.getElementById("mobile").value;
   if(user_name == "" || user_name == null){
