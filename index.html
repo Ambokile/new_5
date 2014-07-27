@@ -48,6 +48,8 @@ xmlhttp.send();
 }
 		return false;	
 	}
+	
+
 </script>
 
 </head>
@@ -58,11 +60,11 @@ xmlhttp.send();
    
   <div style=" width:80%; height:100%;  background-color:transparent; margin-left:10%;" id ="fresh">
     <div style=" margin-top:30%; width:100%; background-color:transparent; text-align:left;">
-            <p style= "margin-bottom:10%; visibility:visible; text-align:center; font-style:normal; font-size:18px; font-weight:bold;" id = "h2_s">DIT NOTES BODY</p>
+            <p style= "margin-bottom:10%; visibility:visible; text-align:center; font-style:normal; font-size:18px; font-weight:bold;" id = "h2_s">DIT NOTES BODY</p> 
        <div data-role="navbar" data-grid="a">
          <ul>
-            <li><a href="#enter" data-ajax="true" id = "button_first">news</a></li>
-            <li><a href="#chat_login" id = "button_second">chat</a></li>
+            <li><a href="#enter" data-ajax="true" onClick="open_loader()">news</a></li>
+            <li><a href="#chat_login" onClick="open_loader()">chat</a></li>
          </ul>
       </div>
    </div>
@@ -139,7 +141,8 @@ xmlhttp.send();
       </div>
       <div data-role="collapsible">
         <h3>General information :</h3>
-        <p id="infogen"> 
+        <p id="infogen">
+            <p style="margin:20% 20% 20% 40%;"><img src="jquery-mobile/images/ajax-loader.gif" width="28px" height="24px" /></p>
 		</p>
         
       </div>
@@ -152,7 +155,8 @@ xmlhttp.send();
   <div style=" font-size:12px; font-style:italic; font-weight:normal; background-color:#0f0;color:#000; height:40px;"><br><span style=" margin-left:10%; font-style:italic; font-weight:normal;"></span><span style=" margin-left:2%;">Computer notes body :</span></div>
   </div>
   
-  <div data-role="content" style="background-color:transparent; height:100%; margin-top:30%; padding:2%;" id="info5">	 
+  <div data-role="content" style="background-color:transparent; height:100%; margin-top:30%; padding:2%;" id="info5">
+       <p style="margin:20% 20% 20% 40%;"><img src="jquery-mobile/images/ajax-loader.gif" width="28px" height="24px" /></p>	 
 </div>
 </div>
 
@@ -163,8 +167,7 @@ xmlhttp.send();
   </div>
   
   <div data-role="content" style="background-color:transparent; height:100%; margin-top:30%; padding:2%" id="info6">
-       
-	
+        <p style="margin:20% 20% 20% 40%;"><img src="jquery-mobile/images/ajax-loader.gif" width="28px" height="24px" /></p>	
 </div>
 </div>
 
@@ -175,7 +178,7 @@ xmlhttp.send();
   </div>
   
   <div data-role="content" style="background-color:transparent; height:100%; margin-top:30%; padding:2%" id="info7">
-     
+            <p style="margin:20% 20% 20% 40%;"><img src="jquery-mobile/images/ajax-loader.gif" width="28px" height="24px" /></p>
    </div>
 </div>
 
@@ -186,7 +189,7 @@ xmlhttp.send();
   </div>
   
   <div data-role="content" style="background-color:transparent; height:100%; margin-top:30%; padding:2%" id="info8">
-     
+          <p style="margin:20% 20% 20% 40%;"><img src="jquery-mobile/images/ajax-loader.gif" width="28px" height="24px" /></p>
 </div>
 </div>
 
@@ -197,7 +200,7 @@ xmlhttp.send();
   </div>
   
   <div data-role="content" style="background-color:transparent; height:100%; margin-top:30%; padding:2%" id="info9">
-     
+         <p style="margin:20% 20% 20% 40%;"><img src="jquery-mobile/images/ajax-loader.gif" width="28px" height="24px" /></p>
 </div>
 </div>
 
@@ -208,6 +211,7 @@ xmlhttp.send();
   </div>
   
   <div data-role="content" style="background-color:transparent; height:100%; margin-top:30%; padding:2%" id="infoA">
+        <p style="margin:20% 20% 20% 40%;"><img src="jquery-mobile/images/ajax-loader.gif" width="28px" height="24px" /></p>
 </div>
 </div>
 
@@ -217,7 +221,8 @@ xmlhttp.send();
       <div style=" font-size:12px; font-style:italic; font-weight:normal; background-color:#0f0;color:#000; height:40px;"><br><span style=" margin-left:10%; font-style:italic; font-weight:normal;"></span><span style=" margin-left:2%;">Adminission notes body :</span></div>
   </div>
   
-  <div data-role="content" style="background-color:transparent; height:100%; margin-top:30%; padding:2%" id="info0">  
+  <div data-role="content" style="background-color:transparent; height:100%; margin-top:30%; padding:2%" id="info0">
+        <p style="margin:20% 20% 20% 40%;"><img src="jquery-mobile/images/ajax-loader.gif" width="28px" height="24px" /></p>  
   </div>
 
 </div>
@@ -228,7 +233,7 @@ xmlhttp.send();
     <div style=" font-size:12px; font-style:italic; font-weight:normal; background-color:#0f0;color:#000; height:40px;"><br><span style=" margin-left:10%; font-style:italic; font-weight:normal;"></span><span style=" margin-left:2%;">DITSO notes body :</span></div>
   </div>
   <div data-role="content" style="background-color:transparent; height:100%; margin-top:30%; padding:2%" id="info1">
-    
+        <p style="margin:20% 20% 20% 40%;"><img src="jquery-mobile/images/ajax-loader.gif" width="28px" height="24px" /></p>
 </div>
 </div>
 <div data-role="page" id="body_lib" style="background-color:#063" data-backbtn="true" data-back-btn-text="Back"  data-theme="b">
@@ -237,7 +242,7 @@ xmlhttp.send();
     <div style=" font-size:12px; font-style:italic; font-weight:normal; background-color:#0f0;color:#000; height:40px;"><br><span style=" margin-left:10%; font-style:italic; font-weight:normal;"></span><span style=" margin-left:2%;">Library notes body :</span></div>
   </div>
   <div data-role="content" style="background-color:transparent; height:auto; margin-top:30%; padding:2%" id="info2">
-     
+        <p style="margin:20% 20% 20% 40%;"><img src="jquery-mobile/images/ajax-loader.gif" width="28px" height="24px" /></p>
 </div>
 </div>
 
@@ -247,7 +252,7 @@ xmlhttp.send();
     <div style=" font-size:12px; font-style:italic; font-weight:normal; background-color:#0f0;color:#000; height:40px;"><br><span style=" margin-left:10%; font-style:italic; font-weight:normal;"></span><span style=" margin-left:2%;">Clubs notes body :</span></div>
   </div>
   <div data-role="content" style="background-color:transparent; height:auto; margin-top:30%; padding:2%" id="info3">
-   
+        <p style="margin:20% 20% 20% 40%;"><img src="jquery-mobile/images/ajax-loader.gif" width="28px" height="24px" /></p>
 </div>
 </div>
 
@@ -256,7 +261,8 @@ xmlhttp.send();
     <h1 style="text-align:left;">DIT NOTES BODY</h1>
     <div style=" font-size:12px; font-style:italic; font-weight:normal; background-color:#0f0;color:#000; height:40px;"><br><span style=" margin-left:10%; font-style:italic; font-weight:normal;"></span><span style=" margin-left:2%;">About DIT notes body :</span></div>
   </div>
-  <div data-role="content" style="background-color:transparent; height:100%; margin-top:0%; padding:2%" id="info4">   
+  <div data-role="content" style="background-color:transparent; height:100%; margin-top:0%; padding:2%" id="info4">
+        <p style="margin:20% 20% 20% 40%;"><img src="jquery-mobile/images/ajax-loader.gif" width="28px" height="24px" /></p>   
 </div>
 </div>
 
