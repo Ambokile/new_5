@@ -292,6 +292,7 @@ function grap_info(str,into){
  xmlhttp.onreadystatechange = function(){
 	 if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
 		document.querySelector("#info"+into).innerHTML = xmlhttp.responseText;
+		document.querySelector("#media_c").innerHTML = xmlhttp.responseText;
 	 } 
 			 
 			                       };
