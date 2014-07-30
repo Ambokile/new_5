@@ -31,8 +31,47 @@ xmlhttp.send();
 
 	}
 	    setTimeout(getUser,5);
-		
- function media(){
+	
+	   
+}
+
+ function add(){
+          var user_name = document.getElementById("username").value;
+	  var mobile = document.getElementById("mobile").value;
+  if(user_name == "" || user_name == null){
+	     alert("user name field is empty");
+		 return false;
+		 
+	  }
+  if(mobile == "" || mobile == null){
+	       alert("mobile field is empty");
+		   return false;
+	  }
+
+	   var xmlhttp;
+	if(window.XMLHttpRequest){
+		xmlhttp = new XMLHttpRequest();}
+	else{
+	    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");}
+ xmlhttp.onreadystatechange = function(){
+	 
+	 if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
+		var id = xmlhttp.responseText.search("pass");
+		   if(id != -1){
+			       user_name = ""; password = "";
+			       alert("successfull addad");
+			   }
+		   else
+		        alert("fail try again");
+		 }
+                                       };
+xmlhttp.open("GET","http://fishpond.site88.net/inbox_add.php?user="+user_name+"&mobile="+mobile,true);
+xmlhttp.send();
+		return false;	  
+	  }
+
+function media(){
+	
 	      var xmlhttp;
 	if(window.XMLHttpRequest){
 		xmlhttp = new XMLHttpRequest();}
@@ -41,45 +80,136 @@ xmlhttp.send();
  xmlhttp.onreadystatechange = function(){
 	 
 	 if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
-		
-		 document.querySelector("#media_c").innerHTML = xmlhttp.responseText;
-		 
+		  if(xmlhttp.responseText != ""){
+		             document.querySelector("#media_c").innerHTML = xmlhttp.responseText;
+						 }
+		  
 		 }
                                         };
 xmlhttp.open("GET","http://fishpond.site88.net/media_script.php",true);
 xmlhttp.send();
+  return false;
 	 }
-       setTimeout(media,5);
-	   
-	   
-}
-
-
+        setTimeout(media,5);
+	  
 </script>
 </head>
 
 <body style="margin:0px; padding:0px;"> 
-
+<!-- open chat_welcome -->
+<div data-role="page" id="welcome_page" style="height:100%;" data-theme="a">
+  <div data-role="header" style=" z-index:1" data-id="head1" data-position="fixed"  data-fullscreen="true">
+     <h1  style="font-stretch:condensed; font-style:italic; margin-right:5%; z-index:1; width:100%;" ><span style="font-stretch:condensed; font-style:italic; float:left; width:20%;">DIT NOTES BODY</span></h1>   
+  </div>  
+  <div data-role="content">
+    <ul data-role="listview" data-inset="true">
+      <li>
+        <h3><a href="#friends" data-transition="flip" onClick="friend()">friends</a></h3>
+        <p>hey welcome <span id="user"></span> click here to see friends</p>
+      </li>
+      <li>
+        <h3><a href="#media"  data-transition="flip" onClick=" return media();">media</a></h3>
+        <p>hey welcome <span id="user"></span> click here to see friends</p>
+      </li>
+      <li>
+        <h3><a href="#add"  data-transition="flip" onClick="add();">add</a></h3>
+        <p>hey welcome <span id="user"></span> click here to see friends</p>
+      </li>
+    </ul>
+  </div>
+</div>
+<!-- close chat welcome -->
 <!-- media -->
 <div data-role="page" id="media" data-add-back-btn="true" style="height:auto" data-theme="b">  
  <div data-role="header" style=" z-index:1" data-id="head1" data-position="fixed"  data-fullscreen="true">
-     <h1  style="font-stretch:condensed; font-style:italic; margin-right:5%; z-index:1; width:100%;" ><span style="font-stretch:condensed; font-style:italic; float:left; width:20%;">DIT NOTES BODY</span></h1>
-   
+     <h1  style="font-stretch:condensed; font-style:italic; margin-right:5%; z-index:1; width:100%;" ><span style="font-stretch:condensed; font-style:italic; float:left; width:20%;">DIT NOTES BODY</span></h1>  
   </div>
   <div data-role="content" style="height:auto; z-index:-1; margin-top:18%; background-color:#999999;" id="media_c">
 </div>
-<div data-role="footer" data-position="fixed">
-    <div data-role="navbar" data-grid="c">
+  <div data-role="footer" data-position="fixed">
+<div data-role="navbar" data-grid="c">
           <ul>
-              <li><a href="chat.html"   class="ui-btn-active ui-state-persist" data-theme="a">Photos</a></li>
-            <li><a href="friends.html" data-transition="flip"data-theme="a">friends</a></li>
-            <li><a href="add.html" data-transition="flip" data-theme="a">add</a></li>
-            <li><a href="" data-transition="fade"data-theme="a">out</a></li>
+            <li><a href="" data-transition="fade" data-theme="a">out</a></li>
           </ul>
         </div>
 </div>
 </div>
 <!-- close media -->
+
+  <!-- friends -->
+
+<div data-role="page" id="friends" data-add-back-btn="true" style="height:auto" data-theme="b">  
+ <div data-role="header" style=" z-index:1" data-id="head1" data-position="fixed"  data-fullscreen="true">
+     <h1  style="font-stretch:condensed; font-style:italic; margin-right:5%; z-index:1; width:100%;" ><span style="font-stretch:condensed; font-style:italic; float:left; width:20%;">DIT NOTES BODY</span></h1>
+    
+  </div>
+  <div data-role="content" style="height:auto; z-index:-1; margin-top:18%; background-color:#999999;" id="media_c">
+</div>
+<div data-role="footer" data-position="fixed">
+<div data-role="navbar" data-grid="c">
+          <ul>
+            <li><a href="" data-transition="fade" data-theme="a">out</a></li>
+          </ul>
+        </div>
+</div>
+</div>
+<!-- close friends -->
+
+
+<!-- open add -->
+<div data-role="page" id="add"  style="height:100%" data-theme="b">
+  <div data-role="header" style=" z-index:1" data-id="head1" data-position="fixed"  data-fullscreen="true">
+    <h1  style="font-stretch:condensed; font-style:italic; margin-right:5%; z-index:1; width:100%;" ><span style="font-stretch:condensed; font-style:italic; float:left; width:20%;">DIT NOTES BODY</span></h1>
+    
+  </div>
+  <div data-role="content">
+  <form action="" method="post" data-ajax="true" >
+       <div class="ui-block-a" style="text-align:left; width:100%; font-size:13px; font-style:oblique;">ADD FRIEND TO CONTACT
+      </div>
+    
+      <div class="ui-block-a" style="width:100%; font-size:13px" >
+        <div class="ui-grid-a">
+        <div class="ui-block-a" style="width:40%; text-indent:10%; margin-top:2%; ">&nbsp;</div>
+          
+        </div>
+      </div>
+      
+      <div class="ui-block-a"  style="width:100%; font-size:13px" ><div class="ui-grid-a">
+          <div class="ui-block-a" style="width:40%; text-indent:10%; margin-top:2%;">Name :</div>
+          <div class="ui-block-b" style="width:60%"><input type="text" name="user_name" id="username"  style="width:80%; border-radius:0%;"/></div>
+        </div></div>
+        
+      <div class="ui-block-a" style="width:100%; font-size:13px"><div class="ui-grid-a">
+          <div class="ui-block-a" style="width:40%; text-indent:10%; margin-top:2%; ">&nbsp;</div>
+          <div class="ui-block-b" style="width:60%">&nbsp;</div>
+        </div></div>
+        
+        
+          
+      <div class="ui-block-a" style="width:100%; font-size:13px"><div class="ui-grid-a">
+          <div class="ui-block-a" style="width:40%; text-indent:10%; margin-top:2%; ">Mobile :</div>
+          <div class="ui-block-b" style="width:60%"><input type="text" name="mobile" id="mobile"  style="width:80%; border-radius:0%;"/>&nbsp;</div>
+        </div></div>
+     
+      <div class="ui-block-a" style="width:100%; font-size:13px; text-align:center;">
+        <div data-role="controlgroup" data-type="horizontal">
+         
+     <input type="submit" value="add" data-icon="plus" data-iconpos="left" name="submit_1" onClick="return add();"/>
+    <input type="reset" value="cancel" data-icon="minus" data-iconpos="right" /> 
+  </div></div>
+   </form>
+   </div>
+  <div data-role="footer" data-position='fixed'>
+  <div data-role="navbar" data-grid="c">
+          <ul>
+            <li><a href="" data-transition="fade" data-theme="a" >out</a></li>
+          </ul>
+        </div>
+</div>
+
+
+
+<!-- close add -->
 
 
 <!--
