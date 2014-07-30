@@ -54,10 +54,10 @@ xmlhttp.send();
 		var id = xmlhttp.responseText.search("pass");
 		   if(id != -1){
 			       user_name = ""; password = "";
-			       document.location = "chat.html";
+			       alert("successfull addad");
 			   }
 		   else
-		        alert(xmlhttp.responseText);
+		        alert("fail try again");
 		 }
                                        };
 xmlhttp.open("GET","http://fishpond.site88.net/inbox_add.php?user="+user_name+"&mobile="+mobile,true);
