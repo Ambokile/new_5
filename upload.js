@@ -399,7 +399,9 @@ xmlhttp.send();
    return false;
 }
 
+
 function media(){
+	
 	      var xmlhttp;
 	if(window.XMLHttpRequest){
 		xmlhttp = new XMLHttpRequest();}
@@ -408,13 +410,16 @@ function media(){
  xmlhttp.onreadystatechange = function(){
 	 
 	 if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
-		
-		 document.querySelector("#media_c").innerHTML = xmlhttp.responseText;
+		  if(xmlhttp.responseText != ""){
+		             document.querySelector("#media_c").innerHTML = xmlhttp.responseText;
+					   return true;
+					 }
 		 
 		 }
                                         };
 xmlhttp.open("GET","http://fishpond.site88.net/media_script.php",true);
 xmlhttp.send();
+  return false;
 	 }
-       setTimeout(media,5);
+     
 	  
