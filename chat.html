@@ -129,7 +129,8 @@ xmlhttp.send();
   <div data-role="footer" data-position="fixed">
 <div data-role="navbar" data-grid="c">
           <ul>
-            <li><a href="" data-transition="fade" data-theme="a">out</a></li>
+             <li><a href="#share" data-transition="pop" data-theme="a"  data-icon="star" data-iconpos="left">share</a></li>
+            <li><a href="" data-transition="fade" data-theme="a" data-iconpos="left" data-icon="delete">out</a></li>
           </ul>
         </div>
 </div>
@@ -208,6 +209,53 @@ xmlhttp.send();
 </div>
 
 
+<!-- open share -->
+<div data-role="page" id="share"  style="height:100%" data-theme="b" data-backbtn="true" data-back-btn-text="Back">
+  <div data-role="header">
+    <h1 style="margin-left:10%;">DIT NOTES BODY</h1>
+  </div>
+  <div data-role="content">
+  <form action="" method="post" data-ajax="false" >
+       <div class="ui-block-a" style="text-align:left; width:100%; font-size:13px; font-style:oblique;">ADD MEDIA 
+      </div>
+    
+      <div class="ui-block-a" style="width:100%; font-size:13px" >
+        <div class="ui-grid-a">
+        <div class="ui-block-a" style="width:40%; text-indent:10%; margin-top:2%; ">&nbsp;</div>
+          
+        </div>
+      </div>
+      
+      <div class="ui-block-a"  style="width:100%; font-size:13px" ><div class="ui-grid-a">
+          <div class="ui-block-a" style="width:40%; text-indent:10%; margin-top:2%;">Name :</div>
+          <div class="ui-block-b" style="width:60%"><input name="media" type="file" id="media_share"></div>
+        </div></div>
+        
+      <div class="ui-block-a" style="width:100%; font-size:13px"><div class="ui-grid-a">
+          <div class="ui-block-a" style="width:40%; text-indent:10%; margin-top:2%; ">&nbsp;</div>
+          <div class="ui-block-b" style="width:60%">&nbsp;</div>
+        </div></div>
+        
+        
+          
+      <div class="ui-block-a" style="width:100%; font-size:13px"><div class="ui-grid-a">
+          <div class="ui-block-a" style="width:40%; text-indent:10%; margin-top:2%; ">Media Description :</div>
+          <div class="ui-block-b" style="width:60%"><textarea name="about_media" cols="30" rows="30"></textarea></div>
+        </div></div>
+     
+      <div class="ui-block-a" style="width:100%; font-size:13px; text-align:center;">
+        <div data-role="controlgroup" data-type="horizontal">
+         
+     <input type="submit" value="share" data-icon="plus" data-iconpos="left" name="submit_1"/>
+    <input type="reset" value="cancel" data-icon="minus" data-iconpos="right" /> 
+  </div></div>
+<div id="log_err" class="ui-block-a" style="text-align:center; width:100%; font-size:13px; font-style:oblique; color:#f00">
+ 
+</div>
+   </form>
+   </div>
+</div>
+<!-- close share -->
 
 <!-- close add -->
 
@@ -252,62 +300,7 @@ xmlhttp.send();
 </div>
 -->
 
-<!-- open share -->
-<!--
-<div data-role="page" id="share"  style="height:100%" data-theme="b" data-backbtn="true" data-back-btn-text="Back">
-  <div data-role="header">
-    <h1 style="margin-left:10%;">DIT NOTES BODY</h1>
-    <div data-role="navbar" data-icon="grid" style="">
-      <ul>
-        <li><a href="chat.html#chat" data-ajax="false" data-icon="info">chat</a></li>
-        <li><a href="chat.html#media" data-icon="star" data-ajax="false">media</a></li>
-        <li><a href="log_out.php" data-ajax="false" data-icon="back">log out</a></li>
-      </ul>
-    </div>
-  </div>
-  <div data-role="content">
-  <form action="" method="post" data-ajax="false" >
-       <div class="ui-block-a" style="text-align:left; width:100%; font-size:13px; font-style:oblique;">ADD MEDIA 
-      </div>
-    
-      <div class="ui-block-a" style="width:100%; font-size:13px" >
-        <div class="ui-grid-a">
-        <div class="ui-block-a" style="width:40%; text-indent:10%; margin-top:2%; ">&nbsp;</div>
-          
-        </div>
-      </div>
-      
-      <div class="ui-block-a"  style="width:100%; font-size:13px" ><div class="ui-grid-a">
-          <div class="ui-block-a" style="width:40%; text-indent:10%; margin-top:2%;">Name :</div>
-          <div class="ui-block-b" style="width:60%"><input name="media" type="file" id="media_share"></div>
-        </div></div>
-        
-      <div class="ui-block-a" style="width:100%; font-size:13px"><div class="ui-grid-a">
-          <div class="ui-block-a" style="width:40%; text-indent:10%; margin-top:2%; ">&nbsp;</div>
-          <div class="ui-block-b" style="width:60%">&nbsp;</div>
-        </div></div>
-        
-        
-          
-      <div class="ui-block-a" style="width:100%; font-size:13px"><div class="ui-grid-a">
-          <div class="ui-block-a" style="width:40%; text-indent:10%; margin-top:2%; ">Media Description :</div>
-          <div class="ui-block-b" style="width:60%"><textarea name="about_media" cols="30" rows="30"></textarea></div>
-        </div></div>
-     
-      <div class="ui-block-a" style="width:100%; font-size:13px; text-align:center;">
-        <div data-role="controlgroup" data-type="horizontal">
-         
-     <input type="submit" value="share" data-icon="plus" data-iconpos="left" name="submit_1"/>
-    <input type="reset" value="cancel" data-icon="minus" data-iconpos="right" /> 
-  </div></div>
-<div id="log_err" class="ui-block-a" style="text-align:center; width:100%; font-size:13px; font-style:oblique; color:#f00">
- 
-</div>
-   </form>
-   </div>
-</div>
--->
-<!-- close share -->
+
 
 
 
