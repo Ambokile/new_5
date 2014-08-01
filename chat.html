@@ -22,8 +22,8 @@ function getUser(){
 	 if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
 		
 		 document.querySelector("#user").innerHTML = xmlhttp.responseText;
-		  document.querySelector("#user_media").innerHTML = xmlhttp.responseText;
-		   document.querySelector("#user_chat_room").innerHTML = xmlhttp.responseText;
+		  document.querySelector("#user_1").innerHTML = xmlhttp.responseText;
+		   document.querySelector("#user_2").innerHTML = xmlhttp.responseText;
 		 }
                                         };
 xmlhttp.open("GET","http://fishpond.site88.net/getUser.php",true);
@@ -125,6 +125,7 @@ xmlhttp.send();
      <h1  style="font-stretch:condensed; font-style:italic; margin-right:5%; z-index:1; width:100%;" ><span style="font-stretch:condensed; font-style:italic; float:left; width:20%;">DIT NOTES BODY</span></h1>  
   </div>
   <div data-role="content" style="height:auto; z-index:-1; background-color:#CCC; padding:0.5%" id="media_c">
+       <p style="margin:50% 20% 20% 40%;"><img src="jquery-mobile/images/ajax-loader.gif" width="28px" height="24px" /></p>	 
 </div>
   <div data-role="footer" data-position="fixed">
 <div data-role="navbar" data-grid="c">
@@ -145,6 +146,7 @@ xmlhttp.send();
     
   </div>
   <div data-role="content" style="height:auto; z-index:-1; margin-top:18%; background-color:#999999;" id="media_c">
+    <p style="margin:50% 20% 20% 40%;"><img src="jquery-mobile/images/ajax-loader.gif" width="28px" height="24px" /></p>	 
 </div>
 <div data-role="footer" data-position="fixed">
 <div data-role="navbar" data-grid="c">
