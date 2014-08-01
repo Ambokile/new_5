@@ -55,7 +55,7 @@ else{
 		 var id = xmlhttp.responseText.search("pass_in");
 		   if(id != -1){
 			       user_name = ""; password = "";
-			       window.location = "publish.html";
+			       window.location = "../../publish.html";
 			   }
 		   else
 		        alert("failed to log in");
@@ -341,28 +341,6 @@ window.x = function tester(){
 	  
 	}
 
-  function load_page(){
-						  var tester = "home";
-			                      var xmlhttp;
-	                         if(window.XMLHttpRequest){
-	                           	xmlhttp = new XMLHttpRequest();}
-	                        else{
-	                                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");}
-                               xmlhttp.onreadystatechange = function(){	 
-	                             if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
-		                           var id = xmlhttp.responseText.search("home");
-				                            if(id != -1)
-		                                              alert(id);
-				                            else
-				                                      alert(id);
-				
-		                                          }
-                                        };
-xmlhttp.open("GET","http://fishpond.site88.net/notes_body.php?tester="+tester,true);
-xmlhttp.send();
-		return false;	
-	}
-
 function add(){
 
            var user_name = document.getElementById("username").value;
@@ -388,7 +366,7 @@ function add(){
 		var id = xmlhttp.responseText.search("pass");
 		   if(id != -1){
 			       user_name = ""; password = "";
-			       document.location = "chat.html";
+			       document.location = "../../chat.html";
 			   }
 		   else
 		        alert("process failed");

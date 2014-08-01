@@ -1,0 +1,138 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Untitled Document</title>
+<link rel="apple-touch-icon" href="img/seine_log.jpg" />
+<link href="jquery-mobile/jquery.mobile-1.0a3.min.css" rel="stylesheet" type="text/css">
+<script src="jquery-mobile/jquery-1.5.min.js" type="text/javascript"></script>
+<script src="jquery-mobile/jquery.mobile-1.0a3.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="upload.js"></script>
+<script type="text/javascript">
+window.onload = function(){
+function getUser(){
+	    var xmlhttp;
+	if(window.XMLHttpRequest){
+		xmlhttp = new XMLHttpRequest();}
+	else{
+	    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");}
+ xmlhttp.onreadystatechange = function(){
+	 
+	 if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
+		
+		 document.querySelector("#user").innerHTML = xmlhttp.responseText;
+		  document.querySelector("#user_1").innerHTML = xmlhttp.responseText;
+		   document.querySelector("#user_2").innerHTML = xmlhttp.responseText;
+		 }
+                                        };
+xmlhttp.open("GET","http://fishpond.site88.net/getUser.php",true);
+xmlhttp.send();
+
+	}
+	    setTimeout(getUser,5);
+	
+	   
+}
+function share_media(){
+	 
+	  var description = document.getElementById("desc").value;
+	      var Inputfile = document.getElementById("media_share");
+		  	
+	  var data = new FormData();
+	  
+	 if(Inputfile.files.length < 1){
+		     alert("please select at least on file");
+		}
+	else{ 
+	
+		 data.append('inputfile',Inputfile.files[0]);
+         data.append('desc',description);
+		
+		var xmlhttp;
+	if(window.XMLHttpRequest){
+		xmlhttp = new XMLHttpRequest();}
+	else{
+	    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");}
+ xmlhttp.onreadystatechange = function(){
+	 
+	 if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
+		 var id = xmlhttp.responseText.search("uploaded");
+		 if(id != -1 ){
+			     alert("successifull published");
+				 document.querySelector("#info").value == "";
+                 document.querySelector("#from").value == "";
+				  document.querySelector("#select_body").selectedIndex == 0;
+			 }
+		 else{
+			       var id_i = xmlhttp.responseText.search("file_type");
+				   if(id_i != -1)
+				           alert("failed, because file format may not supported. Please check and try again");
+				    else
+		                   alert("failed, please try again");
+					 
+			 }
+			  
+			 
+		 }
+                                        };
+			xmlhttp.open('POST','http://fishpond.site88.net/share_media.php',true);
+			xmlhttp.setRequestHeader('cache-control','no-cache');
+			xmlhttp.send(data);
+	  }
+	  
+		return false;	
+	}
+</script>
+</script>
+</head>
+
+<body>
+<!-- open share -->
+<div data-role="page" id="share"  style="height:100%" data-theme="b" data-backbtn="true" data-back-btn-text="Back">
+  <div data-role="header">
+    <h1 style="margin-left:10%;">DIT NOTES BODY</h1>
+  </div>
+  <div data-role="content">
+  <form action="" method="post" data-ajax="true" enctype="multipart/form-data" >
+       <div class="ui-block-a" style="text-align:left; width:100%; font-size:13px; font-style:oblique; margin-top:10%;">ADD VIDEO/AUDIO/IMAGE 
+      </div>
+    
+      <div class="ui-block-a" style="width:100%; font-size:13px" >
+        <div class="ui-grid-a">
+        <div class="ui-block-a" style="width:40%; text-indent:10%; margin-top:2%; ">&nbsp;</div>
+          
+        </div>
+      </div>
+      
+      <div class="ui-block-a"  style="width:100%; font-size:13px" ><div class="ui-grid-a">
+          <div class="ui-block-a" style="width:40%; text-indent:10%; margin-top:2%;">Media :</div>
+          <div class="ui-block-b" style="width:60%"><input name="media" type="file" id="media_share"></div>
+        </div></div>
+        
+      <div class="ui-block-a" style="width:100%; font-size:13px"><div class="ui-grid-a">
+          <div class="ui-block-a" style="width:40%; text-indent:10%; margin-top:2%; ">&nbsp;</div>
+          <div class="ui-block-b" style="width:60%">&nbsp;</div>
+        </div></div>
+        
+        
+          
+      <div class="ui-block-a" style="width:100%; font-size:13px"><div class="ui-grid-a">
+          <div class="ui-block-a" style="width:40%; text-indent:10%; margin-top:2%; ">Media Description :</div>
+          <div class="ui-block-b" style="width:60%"><textarea name="about_media" cols="30" rows="30" id="desc"></textarea></div>
+        </div></div>
+     
+      <div class="ui-block-a" style="width:100%; font-size:13px; text-align:center;">
+        <div data-role="controlgroup" data-type="horizontal">
+         
+     <input type="submit" value="share" data-icon="plus" data-iconpos="left" onClick=" return share_media();"/>
+    <input type="reset" value="cancel" data-icon="minus" data-iconpos="right" /> 
+  </div></div>
+<div id="log_err" class="ui-block-a" style="text-align:center; width:100%; font-size:13px; font-style:oblique; color:#f00">
+ 
+</div>
+   </form>
+   </div>
+</div>
+<!-- close share -->
+</body>
+</html>
