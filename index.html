@@ -24,6 +24,7 @@ function log_in_chat(){
 	       alert("password field is empty");
 	  }
 else{
+	  document.querySelector("#image_load").style.visibility = "visible";
 	   var xmlhttp;
 	if(window.XMLHttpRequest){
 		xmlhttp = new XMLHttpRequest();}
@@ -32,6 +33,7 @@ else{
  xmlhttp.onreadystatechange = function(){
 	 
 	 if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
+		  document.querySelector("#image_load").style.visibility = "hidden";
 		 var id = xmlhttp.responseText.search("pass_in");
 		   if(id != -1){
 			       user_name = ""; password = "";
@@ -299,7 +301,7 @@ xmlhttp.send();
     <input type="reset" value="clear" data-icon="forward" data-iconpos="right" /> 
   </div></div>
 <div id="log_err" class="ui-block-a" style="text-align:center; width:100%; font-size:13px; font-style:oblique; color:#f00">
- 
+     <div style=" width:100%; text-align:center; margin-top:5%;"><img src="jquery-mobile/images/ajax-loader_2.gif" width="16" height="11" id="image_load" style="visibility:hidden" ></div>
 </div>
 </div>
     </form>
@@ -348,7 +350,7 @@ xmlhttp.send();
     <input type="reset" value="clear" data-icon="forward" data-iconpos="right" /> 
   </div></div>
 <div id="log_err" class="ui-block-a" style="text-align:center; width:100%; font-size:13px; font-style:oblique; color:#f00">
- 
+    <div style=" width:100%; text-align:center; margin-top:5%;"><img src="jquery-mobile/images/ajax-loader_2.gif" width="16" height="11" id="image_load" style="visibility:hidden" ></div>
 </div>
 </div>
     </form>

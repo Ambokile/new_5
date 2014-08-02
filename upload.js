@@ -45,6 +45,7 @@ function log_in(){
 	       alert("password field is empty");
 	  }
 else{
+	 document.querySelector("#image_load").style.visibility = "visible";
 	if(window.XMLHttpRequest){
 		xmlhttp = new XMLHttpRequest();}
 	else{
@@ -52,6 +53,7 @@ else{
  xmlhttp.onreadystatechange = function(){
 	 
 	 if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
+		  document.querySelector("#image_load").style.visibility = "hidden";
 		 var id = xmlhttp.responseText.search("pass_in");
 		   if(id != -1){
 			       user_name = ""; password = "";
