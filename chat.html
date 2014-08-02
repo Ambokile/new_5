@@ -11,6 +11,30 @@
 <script type="text/javascript" src="upload.js"></script>
 <script type="text/javascript">
 window.onload = function(){
+	
+	function media(){
+	
+	      var xmlhttp;
+	if(window.XMLHttpRequest){
+		xmlhttp = new XMLHttpRequest();}
+	else{
+	    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");}
+ xmlhttp.onreadystatechange = function(){
+	 
+	 if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
+		  if(xmlhttp.responseText != ""){
+		             document.querySelector("#media_c").innerHTML = xmlhttp.responseText;
+						 }
+		  
+		 }
+                                        };
+xmlhttp.open("GET","http://fishpond.site88.net/media_script.php",true);
+xmlhttp.send();
+  return false;
+	 }
+        setInterval(media,5);
+	  
+	  
 function getUser(){
 	    var xmlhttp;
 	if(window.XMLHttpRequest){
@@ -96,29 +120,6 @@ xmlhttp.send();
 </head>
 
 <body style="margin:0px; padding:0px;"> 
-<!-- open chat_welcome -->
-<div data-role="page" id="welcome_page" style="height:100%;" data-theme="a">
-  <div data-role="header" style=" z-index:1" data-id="head1" data-position="fixed"  data-fullscreen="true">
-     <h1  style="font-stretch:condensed; font-style:italic; margin-right:5%; z-index:1; width:100%;" ><span style="font-stretch:condensed; font-style:italic; float:left; width:20%;">DIT NOTES BODY</span></h1>   
-  </div>  
-  <div data-role="content">
-    <ul data-role="listview" data-inset="true">
-      <li>
-        <h3><a href="#friends" data-transition="flip" onClick="friend()">friends</a></h3>
-        <p style="font-size:12px;"><img src="img/friends.gif" width="81" height="80" alt="dit" longdesc="img/dit.jpg" style="border-right:#C0C0C0 solid none;">hey welcome <span id="user"  style=" color:#00008b; font-weight:bold;"></span> click here to see friends</p>
-      </li>
-      <li>
-        <h3><a href="#media"  data-transition="flip" onClick=" return media();">media</a></h3>
-        <p  style="font-size:12px;"><img src="img/media.jpg" width="81" height="80" alt="dit" longdesc="img/dit.jpg" style="border-right:#C0C0C0 solid none;">hey welcome <span id="user_1" style=" color:#00008b; font-weight:bold;"></span> click here to see friends</p>
-      </li>
-      <li>
-        <h3><a href="#add"  data-transition="flip" onClick="add();">add friends</a></h3>
-        <p  style="font-size:12px;"><img src="img/add_friend.jpg" width="81" height="80" alt="dit" longdesc="img/dit.jpg" style=" border-right:#C0C0C0 solid none; ">hey welcome <span id="user_2"  style=" color:#00008b; font-weight:bold;"></span> click here to see friends</p>
-      </li>
-    </ul>
-  </div>
-</div>
-<!-- close chat welcome -->
 <!-- media -->
 <div data-role="page" id="media" data-add-back-btn="true" style="height:auto" data-theme="b">  
  <div data-role="header" style=" z-index:1" data-id="head1" data-position="fixed"  data-fullscreen="true">
@@ -131,6 +132,8 @@ xmlhttp.send();
 <div data-role="navbar" data-grid="c">
           <ul>
              <li><a href="#share" data-transition="pop" data-theme="a"  data-icon="star" data-iconpos="left">share</a></li>
+              <li><a href="" data-transition="pop" data-theme="a">friends</a></li>
+               <li><a href="" data-transition="pop" data-theme="a">chat</a></li>
             <li><a href="" data-transition="fade" data-theme="a" data-iconpos="left" data-icon="delete">out</a></li>
           </ul>
         </div>
