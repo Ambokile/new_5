@@ -40,9 +40,9 @@ function send_info(){
  xmlhttp.onreadystatechange = function(){
 	  
 	 if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
+		  document.getElementById("image_load").style.visibility = "hidden";
 		 var id = xmlhttp.responseText.search("success");
 		 if(id != -1 ){
-			      document.getElementById("image_load").style.visibility = "hidden";
 			     alert("successifull published");
 				 document.querySelector("#info").value == "";
                  document.querySelector("#from").value == "";
