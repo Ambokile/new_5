@@ -55,7 +55,7 @@ else{
 		 var id = xmlhttp.responseText.search("pass_in");
 		   if(id != -1){
 			       user_name = ""; password = "";
-			       window.location = "../../publish.html";
+			       window.location = "../publish.html";
 			   }
 		   else
 		        alert("failed to log in");
@@ -366,7 +366,7 @@ function add(){
 		var id = xmlhttp.responseText.search("pass");
 		   if(id != -1){
 			       user_name = ""; password = "";
-			       document.location = "../../chat.html";
+			       document.location = "../chat.html";
 			   }
 		   else
 		        alert("process failed");
