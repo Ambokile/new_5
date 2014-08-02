@@ -17,6 +17,7 @@ function send_info(){
 	    var to = document.getElementById("select_body").selectedIndex;
 		 var to_bd = document.getElementsByName("bod")[to].value;
 	      var Inputfile = document.getElementById("upload_file");
+		      
 		
 	  var data = new FormData();
 	 if(from == "" || from == null){
@@ -31,21 +32,24 @@ function send_info(){
 		 data.append('from',from);
 		 data.append('ntb',to_bd);
 		var xmlhttp;
+		  document.getElementById("image_load").style.visibility = "visible";
 	if(window.XMLHttpRequest){
 		xmlhttp = new XMLHttpRequest();}
 	else{
 	    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");}
  xmlhttp.onreadystatechange = function(){
-	 
+	  
 	 if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
 		 var id = xmlhttp.responseText.search("success");
 		 if(id != -1 ){
+			      document.getElementById("image_load").style.visibility = "hidden";
 			     alert("successifull published");
 				 document.querySelector("#info").value == "";
                  document.querySelector("#from").value == "";
 				  document.querySelector("#select_body").selectedIndex == 0;
 			 }
 		 else{
+			  document.getElementById("image_load").style.visibility = "hidden";
 			  var id_1 = xmlhttp.responseText.search("fail_filetype");
 			    if(id_1 != -1){
 					
@@ -63,7 +67,7 @@ function send_info(){
 	  }
 	  
 		return false;	
-	}	 
+	} 
 </script>
 
 </head>
@@ -135,8 +139,8 @@ function send_info(){
   
   
 </div>
-  <div  id="reply" class="ui-block-a" style="width:100%; font-size:13px; text-align:center;">&nbsp;</div>
-   <hr />
+  <div  id="reply" class="ui-block-a" style="width:100%; font-size:13px; text-align:center; visibility:hidden"><img src="jquery-mobile/images/ajax-loader_1.gif" width="126" height="22" id="image_load" /></div>
+  <hr />
    
       <div class="ui-block-a" style="width:auto">
     <span style="" ></span>
